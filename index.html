@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Will you be my Valentine?</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%);
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+        }
+
+        h2 {
+            color: white;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .view {
+            display: none;
+        }
+
+        .view.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        /* Puzzle Styles */
+        .puzzle-container {
+            background: white;
+            padding: 15px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            display: inline-block;
+        }
+
+        #puzzleGrid {
+            display: grid;
+            gap: 3px;
+        }
+
+        .tile {
+            width: 100px;
+            height: 100px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.15s ease;
+        }
+
+        .tile:hover:not(.empty) {
+            transform: scale(1.03);
+        }
+
+        .tile.empty {
+            background: #eee;
+            cursor: default;
+        }
+
+        /* Valentine Styles */
+        .valentine-box {
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .valentine-box h1 {
+            color: #ff4b6e;
+            font-size: 36px;
+            margin-bottom: 30px;
+        }
+
+        .yes-btn {
+            background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%);
+            color: white;
+            border: none;
+            padding: 18px 50px;
+            font-size: 22px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            font-weight: bold;
+        }
+
+        .yes-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 5px 15px rgba(255, 75, 110, 0.4);
+        }
+
+        /* Cats Styles */
+        .cats-box {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .cats-box h1 {
+            color: #ff4b6e;
+            margin-bottom: 20px;
+        }
+
+        .cats-box img {
+            max-width: 350px;
+            border-radius: 15px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- View 1: Puzzle -->
+        <div id="puzzleView" class="view active">
+            <h2>Solve the puzzle to continue! 💕</h2>
+            <div class="puzzle-container">
+                <div id="puzzleGrid"></div>
+            </div>
+        </div>
+
+        <!-- View 2: Valentine Question -->
+        <div id="valentineView" class="view">
+            <div class="valentine-box">
+                <h1>Will you be my Valentine? ❤️</h1>
+                <button class="yes-btn" id="yesBtn">Yes!</button>
+            </div>
+        </div>
+
+        <!-- View 3: Cats -->
+        <div id="catsView" class="view">
+            <div class="cats-box">
+                <h1>Yay! I love you! 💖</h1>
+                <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExaTI0NWEzcjg3OWVodzVndnp6YnZ4eGtzeHVlMDNjMDFrano0bnY5YSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/wvYNSqBAMDVx8CEYkt/giphy.gif" alt="Cats cuddling">
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
